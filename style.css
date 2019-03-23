@@ -53,7 +53,7 @@ html {
     color: rgb(202, 142, 30);
 }
 
-.section p {
+.section p, li {
     padding-left: 1%;
     padding-right: 25%;
     line-height: 2em;
