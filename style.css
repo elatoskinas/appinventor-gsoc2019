@@ -26,12 +26,16 @@ html {
     padding: 8px 8px 8px 10px;
     text-decoration: none;
     font-size: 20px;
-    color: #ffffff;
+    color: #ffffffb1;
     display: block;
 }
 
 #navBar a:hover {
-    color: rgb(134, 199, 255);
+    color: #063cff;
+}
+
+#navBar a[data-active=true] {
+    color: rgb(255, 255, 255);
 }
 
 /* Content */
