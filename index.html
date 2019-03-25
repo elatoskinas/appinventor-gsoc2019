@@ -54,7 +54,7 @@
                     <li>Create an abstract class ChartComponent which extends from AndroidViewComponent for charts
                         (since charts share a lot of common attributes, events and methods). Since all of the charts have their
                         own counterparts (such as LineDataSet for the DataSet of the LineChart), I will most likely go with making the
-                        ChartComponent abstract class a generic class.</li>
+                        ChartComponent abstract class a generic class, so we can pass in the class type per chart.</li>
                     <li>Establish and make a UML diagram of the chart attributes. This way, I will be able to see the common functionality
                         between charts, so that it can all be added to the abstract class. For instance, each chart has a Legend, DataSet,
                         XAxis, YAxis, Colors, ValueFormatter, AxisValueFormatter and various style settings. Therefore methods
@@ -86,8 +86,8 @@
                     <li>Create an abstract class MockChartComponent that extends from MockVisibleComponent (so
                         that we may see our visual changes in the editor itself)
                     </li>
-                    <li>For each concrete chart class, create a class for the Mock Component that extends from MockChartComponent</li>
-                    <li>Write the corresponding documentation for each Chart component, possibly under a new page of category Charts</li>
+                    <li>For each concrete chart class, create a class for the Mock Component that extends from MockChartComponent.</li>
+                    <li>Write the corresponding documentation for each Chart component, possibly under a new page of category Charts.</li>
                 </ol>
 
                 <h3>Menu Options</h3>
@@ -113,10 +113,10 @@
                         Additional alterations to Form.java might be needed, since two menu options are added in that class.
                     </li>
                     <li>
-                        Write tests for the component
+                        Write tests for the component.
                     </li>
                     <li>
-                        Write documentation for the component
+                        Write documentation for the component.
                     </li>
                 </ol>
                 
@@ -160,7 +160,7 @@
                     Specifically, the application involved the following:
                 </p>
                 <ul>
-                    <li>Extending base Java view functionality, such as implementing a custom spinner with icons to adapt to the needs of the application</li>
+                    <li>Extending base Android view functionality, such as implementing a custom spinner with icons to adapt to the needs of the application</li>
                     <li>Implementing a custom side navigation menu, which has options that perform the required functionality</li>
                     <li>Extending the functionality of the standard action bar by adding additional buttons and dynamically changing the title</li>
                     <li>Making use of a 3rd party Calendar library (Caldroid) to build the main interface of the calendar to the project's needs.
@@ -172,7 +172,7 @@
                     <li>Creation and utilizing of a SQLite database to store the user's data and being able to access it efficiently</li>
                     <li>Writing the logic for the application itself (events, goals, tasks, recurring events, total expense/income calculation, etc.)</li>
                     <li>Input validation of the text input fields (involved regexp, such as disallowing to input "." as a numeric value, or allowing to
-                        input at most 2 numbers after the decimal point.
+                        input at most 2 numbers after the decimal point)
                     </li>
                 </ul>
                 <p>Alongside this, I have also made an Android application for a high school project (see <a href="#team-highschool">Experience With Team</a> link for more information
@@ -187,14 +187,17 @@
                     dynamically by user input and then storing the data locally. The OOP Project involved:
                 </p>
                 <ul>
-                    <li>Various logic code to filter smaller subsets of data from collections in accordance to user preferences</li>
+                    <li>Various logic code to filter smaller subsets of data from collections in accordance to user preferences.</li>
                     <li>Writing custom extensions of Java classes (such as custom comparables for sorting)</li>
-                    <li>Serverside code to connect to a MongoDB database</li>
+                    <li>Serverside code to connect to a MongoDB database.</li>
                     <li>Database queries in Java with the help of the Spring Boot library. An example of a query I've written is one that
-                        uses regex to retrieve usernames matching a certain pattern</li>
-                    <li>Utilizing the DAO design pattern for data access within the server code</li>
-                    <li>Making the database accessible via a REST controller</li>
-                    <li>Encrypted password storage in the database</li>
+                        uses regex to retrieve usernames matching a certain pattern.</li>
+                    <li>Utilizing the DAO design pattern for data access within the server code.</li>
+                    <li>Making the database accessible via a REST controller.</li>
+                    <li>Encrypted password storage in the database.</li>
+                    <li>pom.xml maintenance, deploying server to remote location (Heroku), setting up GitLab CI to test
+                        for compilation, CheckStyle and test coverage.
+                    </li>
                 </ul>
 
                 <h3>JavaScript</h3>
@@ -205,7 +208,8 @@
                     checkmating, converting Pawn after it reaches the other side of the board and movement of the board. Visually, we have written the entire html
                     from scratch and styled it with CSS, while also providing various functionality with clientside JavaScript (e.g. blinking tile in red when invalid move
                     is made). We kept some logic on the serverside, such as pairing players for matches, returning responses for certain actions (such as end of match,
-                    move validity, etc.)</p>
+                    move validity, etc.). I have also written small amounts of JavaScript code to perform small tasks (e.g. highlight anchor links in
+                    this proposal page, initialize & load navigation bar in my personal website)</p>
                 
                 <p><a href="https://cse404-chess.herokuapp.com/">Chess application link</a> (can be played by opening two windows, if done by one person, or played with other people!)</p>
                 <p>See <a href="#team-chess">Experience With Teams</a> for teamwork details and GitHub link.</p>
@@ -226,11 +230,12 @@
             <div id="team" class="section">
                 <h2>Experience With Teams</h2>
                 <h3>Java Online Social-network Like Application to track CO2 emissions</h3>
-                <p>Ongoing university project as part of the Object Oriented Programming Project course.
+                <p>Ongoing university project in GitLab as part of the Object Oriented Programming Project course.
                     The size of the team is 7 people. My role in the team is mainly working on the database part of the backend of the application,
                     as well as handling most of the technical parts of the project (setting up CI, deploying application to a remote host, etc.)
                     The project in general has been very successful, as we have successfully been able to distribute our workflow, discuss changes,
-                    new features and plan our work. The project follows Agile development principles and the work is planned by Scrum planning.
+                    new features and plan our work. The project follows Agile development principles and the work is planned by Scrum planning,
+                    which we, together as a team, have succesfully managed to learn and adapt.
                 </p>
 
                 <h3 id="team-chess">Chess Web Application</h3>
@@ -245,8 +250,8 @@
                 <p>I have worked together with 3 other people during the last year of my high school on an Android application. Although my
                     collaborators did not code (I was responsible for all the programming work), they have participated in suggesting ideas,
                     designing the application, suggesting various new features, changes and modifications of the code. Therefore, communication was
-                    a crucial aspect of this project, and therefore I have been able to successfully satisfy each request and the end result
-                    is a fully functioning Android application.
+                    a crucial aspect of this project, and therefore I have been able to successfully satisfy each request and work closely
+                    with my teammates, and the end result is a fully functioning Android application.
                 </p>
 
                 <h3 id="team-highschool">Business Simulation Android Application Project for High School</h3>
