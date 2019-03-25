@@ -27,8 +27,107 @@
             </div>
 
             <div id="project" class="section">
-                <h2>Proposed Summer Project - Visualisation Component</h2>
-                <p>TBD</p>
+                <h2>Proposed Summer Project</h2>
+                <h3>Introduction</h3>
+                <p>My main interest in working for the App Inventor project revolves around the Component Projects.
+                    Due to the varying length of the projects, I would like to make up a full 3 month workload.
+                    Therefore, my projects of interest are:
+                    <ul>
+                        <li>Visualisation Component - Main project that I'm interested in</li>
+                        <li>Menu Options</li>
+                        <li>Improvements in ListView</li>
+                    </ul>
+                </p>
+                <p>I am well aware that the projects that I would be working on would potentially change, regardless, I would like to provide a short summary on
+                    how I would approach each project.</p>
+
+                <h3>Visualisation Component</h3>
+                <p>For this project, I propose to use the MPAndroidChart library, since it is well documented, provides a variety of useful features and extensive customization,
+                    a lot of different chart types and easy adaptability to projects. In fact, I have used this library in one of my previous projects (see <a href="#team-finbuddy">FinBuddy</a>)
+                    and would very much lean towards using it again. In general, my plan for the project would be:
+                </p>
+                <ol>
+                    <li>Install the MPAndroidChart dependency to the build</li>
+                    <li>Create an abstract class ChartComponent which extends from AndroidViewComponent for charts
+                        (since charts share a lot of common attributes, events and methods). Since all of the charts have their
+                        own counterparts (such as LineDataSet for the DataSet of the LineChart), I will most likely go with making the
+                        ChartComponent abstract class a generic class.</li>
+                    <li>Establish and make a UML diagram of the chart attributes. This way, I will be able to see the common functionality
+                        between charts, so that it can all be added to the abstract class. For instance, each chart has a Legend, DataSet,
+                        XAxis, YAxis, Colors, ValueFormatter, AxisValueFormatter and various style settings. Therefore methods
+                        setting and getting these values can be added in the ChartComponent class.
+                    </li>
+                    <li>Following up on the UML diagram, concrete charts have their own specific functionality. For instance, PieChart
+                        has an attribute whether to show the slice labels in percentage or as values. As such, these will be included
+                        in the UML diagram.
+                    </li>
+                    <li>Moving on to the implementation, after the UML diagram is fully established, I can then proceed to
+                        implementing the actual attributes and relevant methods with annotations for each chart, starting
+                        with ChartComponent.
+                    </li>
+                    <li>After ChartComponent is done, I will then proceed with concrete chart implementations. I plan
+                        to implement every chart that is available in the MPAndroidChart library, and for each chart,
+                        I will make a seperate class that extends the abstract ChartComponent class. The components
+                        will then be put under a new category "Charts". In the end, the following classes for
+                        concrete implementations will be present: LineChart, BarChart, PieChart, ScatterChart,
+                        BubbleChart, RadarChart, CandleStickChart.
+                    </li>
+                    <li>After we are done with the attributes, events are needed for added functionality to the
+                        charts. Fortunately, MPAndroidChart provides various Gestures and an OnGestureListener which
+                        works via callbacks and MotionEvents. The gestures include the typical Android view events (long-press,
+                        tap, double-tap, touch up, touch down) plus a few extra ones related to the charts (zoom, drag).
+                        I plan to implement all of these. In general, these apply to every chart and will go to
+                        ChartComponent.
+                    </li>
+                    <li>Write tests for the chart component as functionality is gradually added</li>
+                    <li>Create an abstract class MockChartComponent that extends from MockVisibleComponent (so
+                        that we may see our visual changes in the editor itself)
+                    </li>
+                    <li>For each concrete chart class, create a class for the Mock Component that extends from MockChartComponent</li>
+                    <li>Write the corresponding documentation for each Chart component, possibly under a new page of category Charts</li>
+                </ol>
+
+                <h3>Menu Options</h3>
+                <p>General summary of the plan for the adding Menu Options project:</p>
+                <ol>
+                    <li>Create new component MenuOptions that extends the AndroidNonvisibleComponent class. This could then be put under
+                        the UserInterface category.
+                    </li>
+                    <li>Create getters and setters for the property "Menu Elements" which would represent all 
+                        user defined Menu Elements. I believe it would be a good idea to keep the current
+                        default menu options remain there, but perhaps keep them at the end of the list.
+                    </li>
+                    <li>Write additional code in the component itself to handle adding the Menu Elements into the
+                        context menu and attaching listeners to them.
+                    </li>
+                    <li>
+                        Make all menu options use the same listener, but make the event return a certain value
+                        (either Menu entry name or index) through dispatchEvent.
+                    </li>
+                    <li>Write an event for the listener, which would have one attribute - the value returned by the callback
+                        (Menu entry name/index)</li>
+                    <li>
+                        Additional alterations to Form.java might be needed, since two menu options are added in that class.
+                    </li>
+                    <li>
+                        Write tests for the component
+                    </li>
+                    <li>
+                        Write documentation for the component
+                    </li>
+                </ol>
+                
+                <h3>Improvements in ListView</h3>
+                <ol>
+                    <li>Identify all required extensions and improvements to list view to get the general idea of the features to implement</li>
+                    <li>Create a custom adapter for the list view that can be extended with the needed features (such as adding icons and pictures)</li>
+                    <li>Right now I would consider perhaps having one list for images and one for text, so that the adapter would
+                        have both an Image and a String. In the case where one of them is not present, it is simply not displayed.
+                    </li>
+                    <li>Add additional properties for the new features (e.g. Pictures list attribute for icons/pictures)</li>
+                    <li>Write tests for the new features</li>
+                    <li>Write documentation for the new features</li>
+                </ol>
                 <br><hr><br>
             </div>
 
@@ -153,15 +252,13 @@
                     carry out requests and communicate on mutual changes with my group mates, and we successfully managed to
                     combine our work together. It was also generally a very good mutual learning experience, as we all
                     became acquainted with Android development, and for me, this was a really good head start into Android development.
+                    Moreover, I have successfully been able to teach my teammates how to build Android layouts in XML.
                     There is an extensive documentation and presentation slides for the application, which were intended for a general
                     public with no experience in programming. Unfortunately, it was all written in the Lithuanian language, but I
                     think this gives a good impression of my involvement in Android development at a young age (this was done roughly 2-3 years ago):
                 </p>
                 <p><a href="school-ref/businessguy-report.pdf">Business Guy Report</a></p>
                 <p><a href="school-ref/businessguy-slides.pdf">Business Guy Presentation Slides</a></p>
-                <p><i>As a sidenote, do not take these reports as my skill representation of development now. I have radically improved since this project, and this
-                    was done during one of my first yeears as a programmer.
-                </i></p>
 
                 <h3>AppInventor Contributions</h3>
                 <p><a href="#design">Design Challenge</a></p>
