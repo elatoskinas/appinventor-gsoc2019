@@ -12,10 +12,8 @@ $(window).scroll(function() {
     if (scrollPos < scrollPositions[scrollId] && scrollId > 0) {
         scrollId--;
     }
-    else {
-        while (scrollId < scrollItems.length-1 && scrollPos >= scrollPositions[scrollId+1]) {
-            scrollId++;
-        }
+    else if (scrollPos >= scrollPositions[scrollId+1]){
+        scrollId++;
     }
 
     if (oldScrollId != scrollId) {
