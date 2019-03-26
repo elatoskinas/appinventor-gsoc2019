@@ -9,11 +9,15 @@ $(window).scroll(function() {
 
     var oldScrollId = scrollId;
 
-    if (scrollPos < scrollPositions[scrollId] && scrollId > 0) {
-        scrollId--;
+    if (scrollPos < scrollPositions[scrollId]) {
+        while (scrollId > 0 && scrollPos < scrollPositions[scrollId]) {
+            scrollId--;
+        }
     }
     else if (scrollPos >= scrollPositions[scrollId+1]){
-        scrollId++;
+        while (scrollId != scrollPositions.length - 1 &&  scrollPos >= scrollPositions[scrollId+1]) {
+            scrollId++;
+        }
     }
 
     if (oldScrollId != scrollId) {

@@ -17,7 +17,7 @@ html {
 }
 
 #navBar h2 {
-    color: #ffffff;
+    color: rgb(255, 255, 255);
     padding-left: 10px;
     font-size: 22px;
 }
@@ -26,12 +26,12 @@ html {
     padding: 8px 8px 8px 10px;
     text-decoration: none;
     font-size: 20px;
-    color: #ffffffb1;
+    color: rgba(255, 255, 255, 0.7);
     display: block;
 }
 
 #navBar a:hover {
-    color: #063cff;
+    color: rgb(50, 248, 241);
 }
 
 #navBar a[data-active=true] {
