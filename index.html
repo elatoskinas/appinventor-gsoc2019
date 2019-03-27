@@ -13,6 +13,7 @@
           <a href="#general">General</a>
           <a href="#appinventor">App Inventor Interest</a>
           <a href="#project">Summer Project</a>
+          <a href="#timelines">Timeline</a>
           <a href="#introductory">Introductory Programming</a>
           <a href="#development">Development Tool Experience</a>
           <a href="#team">Team Experience</a>
@@ -60,7 +61,8 @@
                     </ul>
                 </p>
                 <p>I am well aware that the projects that I would be working on would potentially change, regardless, I would like to provide a short summary on
-                    how I would approach each project.</p>
+                    how I would approach each project. For my main project of interest (Visualistion Component), I would like to provide more information of
+                    how I would approach the problem by providing some mockups and snippets.</p>
 
                 <h3>Visualisation Component</h3>
                 <p>For this project, I propose to use the MPAndroidChart library, since it is well documented, provides a variety of useful features and extensive customization,
@@ -106,6 +108,11 @@
                     </li>
                     <li>For each concrete chart class, create a class for the Mock Component that extends from MockChartComponent.</li>
                     <li>Write the corresponding documentation for each Chart component, possibly under a new page of category Charts.</li>
+                    <li>[BONUS] MPAndroidChart provides the ability to construct Custom Markers when clicked on an entry on a Chart.
+                        This can be well put to use in this project to allow even more customization to the charts or have some sort
+                        of standard for the markers. Therefore I propose this a bonus feature for the project.
+                        See <a href="https://github.com/PhilJay/MPAndroidChart/wiki/IMarker-Interface">Link for reference</a>.
+                    </li>
                 </ol>
 
                 <h4>File Paths</h4>
@@ -165,6 +172,82 @@
                     <li>ListView Component class: <i>components\src\com\google\appinventor\components\runtime\ListView.java</i></li>
                     <li>ListView Component documentation: <i>docs\reference\components\userinterface.html</i></li>
                 </ul>
+                <br><hr><br>
+            </div>
+
+            <div id="timelines" class="section">
+                <h2>Timelines</h2>
+                <p>Provided that I work on the Visualisation component during this project, I would structure my time as follows:</p>
+
+                <h3>Week 1</h3>
+                <ul>
+                    <li>Setup a test environment repository to test various chart functionality to make decisions for the App Inventor.</li>
+                    <li>Setup an AppInventor branch from UCR that has the MPAndroidChart dependency added to the build</li>
+                    <li>Create & finalize the UML diagram while also discussing it with my mentor</li>
+                    <li>Setup the basic abstract ChartComponent class with all (or at least most) of the necessary chart properties</li>
+                    <li>Create a LineChart implementation to be actually able to test the abstract ChartCompoent class. For now,
+                        this will only be used mainly for testing and not have the full implementation.
+                    </li>
+                    <li>Test & Document the work</li>
+                </ul>
+
+                <h3>Week 2-3</h3>
+                <ul>
+                    <li>Finish implementing all properties for the abstract ChartComponent class</li>
+                    <li>Implement all events for the abstract ChartComponent class</li>
+                    <li>Implement all functionality for the abstract ChartComponent class (e.g. AxisValueFormatter)</li>
+                    <li>Finish LineChart class to include all properties and necessary functionality</li>
+                    <li>Fully implement the BarChart class with all properties</li>
+                    <li>Fully implement the PieChart class with all properties</li>
+                    <li>Test & Document the work</li>
+                </ul>
+
+                <h3>Week 4-5</h3>
+                <ul>
+                    <li>Fully implement the ScatterChart with all the properties</li>
+                    <li>Fully implement the BubbleChart with all the properties</li>
+                    <li>Fully implement the RadarChart with all the properties</li>
+                    <li>Fully implement the CandleStickChart with all the properties</li>
+                    <li>Test & Document the work</li>
+                </ul>
+
+                <h3>Week 6</h3>
+                <ul>
+                    <li>Create an abstract MockChartComponent class</li>
+                    <li>Implement required functionality that changes the properties of the MockChartComponent class.
+                        This will not be possible to do for many properties however, since each Chart is different.
+                    </li>
+                    <li>Create ChartComponent extensions from the MockChartComoponent class</li>
+                    <li>Create the implementations for each MockChartComponent that visualize the chart well in the
+                        Scene Builder.
+                    </li>
+                    <li>Test & Document the work</li>
+                </ul>
+
+                <h3>Week 7-12</h3>
+                <ul>
+                    <li>Final tests on the ChartComponents</li>
+                    <li>Final documentation</li>
+                    <li>Relevant version upgrading (such as in versioning.js)</li>
+                    <li>Deployment</li>
+                    <li>[BONUS] Potentially work on the proposed Marker implementation</li>
+                    <li><b>Workload for mid Week 7 up to Week 12 to be discussed with mentor at beginning of project (so this project can be further well scoped)</b></li>
+                </ul>
+
+                <h3>My Own Commitments</h3>
+                <p>Unfortunately, there will be two periods of time when I will be absent:
+                </p>
+                <ul>
+                    <li>June 28-July 2 - final exam period (partial absence)</li>
+                    <li>July 8-15 or July 12-19 (one of these weeks) - preplanned vacation (total absence)</li>
+                </ul>
+                <p>
+                    However, I believe this should not be a large
+                    issue, since I will easily be able to compensate for the lost days. Generally, until July, I will be able to work
+                    30-40 hours a week on the project (no more due to university). However, as soon as my final exams end, I would easily
+                    be able to put around 40-45 hours consistently on a weekly basis.
+                </p>
+
                 <br><hr><br>
             </div>
 
