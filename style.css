@@ -62,3 +62,7 @@ html {
     padding-right: 25%;
     line-height: 2em;
 }
+
+#uml-mockup {
+    height: 80vh;
+}
