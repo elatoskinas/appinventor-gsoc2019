@@ -125,7 +125,44 @@
                 <img id="uml-mockup" src="project-ref/inheritance-mockup.png">
                 <p><i>UML mockup of how the inheritance chain would look like. A lot of details ommitted for brevity.</i></p>
 
-                <p><b>To be updated.</b></p>
+                <h5>Adding the first chart component</h5>
+                <p><a href="https://github.com/lightingft/appinventor-sources/commit/d832c407a7489fb00650c2eb65daffffd0bdfd0e">Preview code to add new component</a></p>
+
+                <p><img id="comp1a" src="project-ref/comp1a.png"></p>
+                <p><img id="comp1b" src="project-ref/comp1b.png"></p>
+                <p><i>Add version entries to versioning.js and YaVersion.java</i></p>
+                <br><br>
+
+                <p><img id="comp2a" src="project-ref/comp2a.png"></p>
+                <p><img id="comp2b" src="project-ref/comp2b.png"></p>
+                <p><i>Add new component category for Charts in ComponentCategory.java</i></p>
+                <br><br>
+
+                <p><img id="comp3" src="project-ref/comp3.png"></p>
+                <p><i>Create new class ChartComponent.java. For now, this is just a sample component,
+                    therefore the view is TextLabel and is instantiated as such. In the real project,
+                    the view would of course be changed to the abstract Chart component. (or rather, a generic)
+                    The constructor would also accordingly be changed. Most properties will go into this abstract
+                    class.
+                </i></p>
+                <br><br>
+
+                <p><img id="comp4" src="project-ref/comp4.png"></p>
+                <p><i>Create new class LineChart.java. For now, this is simply an implementation class of the ChartComponent.
+                    This will, of course, in the actual project be filled with the appropriate instantiation and functionality.
+                    The iconName would be changed to the corresponding icon. Same goes with description.
+                </i></p>
+                <br><br>
+                
+                <p><img id="comp5" src="project-ref/comp5.png"></p>
+                <p><i>Add mock component instantiation in MockLineChart.java so that we can get a visible mock component
+                    in the editor. With this, we assume that a MockLineChart class exists with the required type. For now,
+                    in my example code, I have made the MockLineChart component simply a copy of the MockLabel class.
+                </i></p>
+                <br><br>
+                
+                <p><img id="comp6" src="project-ref/comp6.png"></p>
+                <p><i>After running the ant build, we can see that the component has indeed been added under the Chart category.</i></p>
 
                 <h3>Menu Options</h3>
                 <p>General summary of the plan for the adding Menu Options project:</p>
