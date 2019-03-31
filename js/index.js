@@ -9,16 +9,27 @@ $(window).scroll(function() {
 
     var oldScrollId = scrollId;
 
-    if (scrollPos < scrollPositions[scrollId]) {
-        while (scrollId > 0 && scrollPos < scrollPositions[scrollId]) {
-            scrollId--;
+    // Iterate scrollPositions list backwards until first position in range is found
+    for (var i = scrollPositions.length - 1; i >= 0; --i) {
+        if (scrollPos >= scrollPositions[i]) {
+            scrollId = i;
+            break;
         }
     }
-    else if (scrollPos >= scrollPositions[scrollId+1]){
-        while (scrollId != scrollPositions.length - 1 &&  scrollPos >= scrollPositions[scrollId+1]) {
-            scrollId++;
-        }
-    }
+
+    //console.log(scrollId + " " + oldScrollId);
+
+    // Old, more efficient solution (which is somewhat unreliable)
+    // if (scrollPos < scrollPositions[scrollId]) {
+    //     while (scrollId > 0 && scrollPos < scrollPositions[scrollId]) {
+    //         scrollId--;
+    //     }
+    // }
+    // else if (scrollPos >= scrollPositions[scrollId+1]){
+    //     while (scrollId != scrollPositions.length - 1 &&  scrollPos >= scrollPositions[scrollId+1]) {
+    //         scrollId++;
+    //     }
+    // }
 
     if (oldScrollId != scrollId) {
         menus[oldScrollId].dataset.active = false;
