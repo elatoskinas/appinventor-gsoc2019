@@ -38,7 +38,7 @@ html {
     color: rgb(255, 255, 255);
 }
 
-/* Content */
+/* Content & Section */
 #content {
     height: 100%;
     margin-left: 210px;
@@ -63,6 +63,11 @@ html {
     line-height: 2em;
 }
 
+/* Other */
 #uml-mockup {
     height: 80vh;
+}
+
+.demo-code {
+    font-size: 20px;
 }
