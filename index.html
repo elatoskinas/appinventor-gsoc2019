@@ -130,7 +130,7 @@
                         <i>src\com\google\appinventor\client\editor\simple\palette\SimpleComponentDescriptor.java</i></li>
                 </ul>
 
-                <h4>Mockups & Snippets</h4>
+                <h4>Mockups & Code Examples</h4>
                 <p><a href="https://github.com/lightingft/AndroidChartTests" class="demo-code">MPAndroidChart demonstration</a></p>
                 <br>
 
@@ -139,7 +139,7 @@
                 </a>
                 <p><i>UML mockup of how the inheritance chain would look like. A lot of details ommitted for brevity.</i></p>
 
-                <h5>Adding the first chart component</h5>
+                <h5>Adding chart components</h5>
                 <p><a href="https://github.com/lightingft/appinventor-sources/commit/d832c407a7489fb00650c2eb65daffffd0bdfd0e" class="demo-code">Preview code to add new component</a></p>
 
                 <p><img id="comp1a" src="project-ref/comp1a.png"></p>
@@ -178,6 +178,46 @@
                 <p><img id="comp6" src="project-ref/comp6.png"></p>
                 <p><i>After running the ant build, we can see that the component has indeed been added under the Chart category.</i></p>
 
+                <h5>Adding properties, events and functions</h5>
+                <p><a href="https://github.com/lightingft/appinventor-sources/commit/dd36a90a150037575bbe972141a32d41706ba0f8" class="demo-code">
+                    Preview code to add properties, events and functions</a></p>
+
+                <p><img id="comp7" src="project-ref/comp7.png"></p>
+                <p><i>In ChartComponent.java, define new private boolean field named scaleXEnabled. Write set and get property methods,
+                    add required annotations.
+                </i></p>
+                <br><br>
+
+                <p><img id="comp8a" src="project-ref/comp8a.png"></p>
+                <p><img id="comp8b" src="project-ref/comp8b.png"></p>
+                <p><i>After running the ant build, we can see that the properties have been successfully added to the chart component and
+                    are visible in the LineChart implementation.
+                </i></p>
+                <br><br>
+
+                <p><img id="comp9" src="project-ref/comp9.png"></p>
+                <p><i>In ChartComponent.java, add new method that simply dispatches an event called "SingleTap". Add required annotation
+                    to mark the method as a SimpleEvent. To trigger the event, the method SingleTap() has to be called (ideally in the
+                    onSingleTap listener for the case of MPAndroidChart)
+                </i></p>
+                <br><br>
+
+                <p><img id="comp10" src="project-ref/comp10.png"></p>
+                <p><i>After running the ant build, we can see that the event is now accessible among the blocks for the LineChart.
+                </i></p>
+                <br><br>
+
+                <p><img id="comp11" src="project-ref/comp11.png"></p>
+                <p><i>In ChartComponent.java, add new method that takes in two arguments and adds an entry to the chart based on those arguments.
+                    Add required annotation to mark the method as a SimpleFunction that can be accessed among the Chart blocks.
+                </i></p>
+                <br><br>
+
+                <p><img id="comp12" src="project-ref/comp12.png"></p>
+                <p><i>After running the ant build, we can see that the proper function is now accessible.
+                </i></p>
+                <br><br>
+                
                 <h3>Menu Options</h3>
                 <p>General summary of the plan for the adding Menu Options project:</p>
                 <ol>
