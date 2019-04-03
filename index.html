@@ -437,7 +437,7 @@
 
             <div id="development" class="section">
                 <h2>Experience With Development Tools</h2>
-                <h3>Android SDK</h3>
+                <h3 id="dev-android">Android SDK</h3>
                 <p><a href="https://play.google.com/store/apps/details?id=emporium.financecalendar">FinBuddy (Google Play)</a></p>
                 <p>I have gained an extensive understanding of the Android SDK throughout developing Android applications for personal projects.
                     One of my major Android application releases is FinBuddy, which is a finance manager application
@@ -465,7 +465,7 @@
                 <p>Alongside this, I have also made an Android business simulation game application for a high school project together with two fellow students
                     (see <a href="#team-highschool">Experience With Teams</a> for more information and the report that we made)</p>
 
-                <h3>Java</h3>
+                <h3 id="dev-java">Java</h3>
                 <p>Alongside Android Development, I have quite an extensive comprehension of Java due
                     to the large focus of the language in my University. So far, three courses involved extensive coding
                     in Java - Object Oriented Programming, Algorithms & Data Structures, OOP Project. In the first two courses, I was
@@ -489,14 +489,14 @@
                     <li>Integration & Mock Tests for server functionality testing</li>
                 </ul>
                 
-                <h3>JavaDoc</h3>
+                <h3 id="dev-javadoc">JavaDoc</h3>
                 <p>During my studies, we were always required to write JavaDoc for the OOP & OOP Project courses. As such, I have developed
                     a good habit of always writing JavaDoc for my Java Application code, despite whether I'm working alone on the project, or with
                     someone else. As such, I am familiar with the format of JavaDoc, the available annotations (@return, @param, @author, @exception)
                     as well as the general practices of JavaDoc.
                 </p>
 
-                <h3>Git & GitHub</h3>
+                <h3 id="dev-git">Git & GitHub</h3>
                 <p>Throughout my course work and several individual projects I have worked on, I have chosen to and was obliged
                     to use Git. For the Web & Database Course, I was extensively using and learning Git as a newcomer for roughly 2 months,
                     and have been able to become quite familiar with it. I have then extended my knowledge by applying the gained knowledge
@@ -508,7 +508,7 @@
                     some more advanced concepts of Git (checkout, rebase)
                 </p>
 
-                <h3>JUnit</h3>
+                <h3 id="dev-junit">JUnit</h3>
                 <p>Due to coursework demands, I have been able to become strongly familiar with automated testing, and in general, JUnit.
                     Apart from general unit testing, "bad weather behavior" testing practices and edge case testing, I have also managed to gain
                     a lot of knowledge in mock testing and integration testing, specifically for RESTful applications (REST controllers, Requests,
@@ -519,7 +519,7 @@
                     of testing.
                 </p>
 
-                <h3>JavaScript</h3>
+                <h3 id="dev-js">JavaScript</h3>
                 <p><a href="https://github.com/lightingft/cse404-chess">PixelChess (GitHub)</a></p>
                 <p><a href="https://cse404-chess.herokuapp.com/">PixelChess (Heroku)</a> (pairs players automatically upon clicking Play. Can be played by
                     one person by opening two browser windows)</p>
@@ -533,7 +533,7 @@
                     responses for certain actions (such as end of match, move validity, etc.). Outside of this project, I have also written small amounts
                     of JavaScript code to perform small tasks (e.g. highlight anchor links in this proposal page, initialize & load navigation bar in my personal website)</p>
                 
-                <h3>Other Experience</h3>
+                <h3 id="dev-other">Other Experience</h3>
                 <p>Although not relevant skills to the project, this experience heavily contributes to my understanding of the technologies
                     involved in App Inventor:
                 </p>
@@ -548,41 +548,71 @@
 
             <div id="team" class="section">
                 <h2>Experience With Teams</h2>
-                <h3>Java Online Social-network Like Application to track CO2 emissions</h3>
+                <p><i>Note: Some of these projects were explained more in depth in the <a href="#development">Experience With Development Tools</a></i> section,
+                    therefore the project ideas are only presented very briefly in this section.</p>
+
+                <h3>OOP Project</h3>
+                <p><b>Status:</b> Ongoing</p>
+                <p><b>Team size:</b> 7 people</p>
+                <p><b>Duration:</b> 2.5 months</p>
+
                 <p>Ongoing university project in GitLab as part of the Object Oriented Programming Project course.
-                    The size of the team is 7 people. My role in the team is mainly working on the database part of the backend of the application,
-                    some parts of the application logic (such as filtering data on the front end) as well as handling most of the technical parts
-                    of the project (setting up CI, deploying the application to a remote host, etc.) The project in general has been very successful,
-                    as we have successfully been able to distribute our workflow, discuss changes,
-                    new features and plan our work. We have also effectively managed to sort out any problems we had during the project.
-                    The project follows Agile development principles and the work is planned by Scrum planning, which we, together as a team,
-                    have successfully managed to learn and adapt.
+                    The project goal is to build a fully functional Java online social network application to track the amount of CO2 that the user has saved by logging
+                    certain activities. The work is done by following Agile development principles and planned by Scrum planning.
                 </p>
 
-                <h3 id="team-chess">Chess Web Application (PixelChess)</h3>
-                <p>Done as part of the Web & Database Technology course. I have worked in collaboration with one other person
-                    to build a fully functional Node.js web application. Since we were only 2 people, all of our work and discussions
-                    were done in person. However, we have made use of GitHub for version control and an efficient workflow.
+                <p>My role in the team is mainly working on the database part of the backend
+                    of the application, some parts of the application logic (such as filtering data on the front end) as well as handling most of the technical parts
+                    of the project (setting up CI, deploying the application to a remote host, etc.) The project in general has been very successful,
+                    as we have successfully been able to learn and adapt Agile development principles and as a result efficiently distribute our workflow,
+                    discuss changes and new features, as well as plan our work appropriately. We have also effectively managed to sort out any problems we had
+                    during the project.
+                </p>
+
+                <h3 id="team-chess">PixelChess</h3>
+                <p><b>Status:</b> <a href="#dev-js">Released</a></p>
+                <p><b>Team size:</b> 7 people</p>
+                <p><b>Duration:</b> 2.5 months</p>
+
+                <p>Done as part of the Web & Database Technology course. The project goal was to build a fully functional board game multiplayer
+                    Node.js web application. For this project, I have worked in collaboration with one other person.
+                    Since we were only 2 people, all of our work and discussions were done in person. However, we have made
+                    use of GitHub for version control and an efficient workflow. In general, despite the major issues we had with Git as newcomers,
+                    we have successfully been able to finish the project and learn how to use Git efficiently.
                 </p>
                 
-                <h3 id="team-finbuddy">Finance Manager Android Application (FinBuddy)</h3>
-                <p>I have worked together with 3 other people during the last year of my high school on an Android application. Although my
-                    collaborators did not code (I was responsible for all the programming work), they have participated in suggesting ideas,
+                <h3 id="team-finbuddy">FinBuddy</h3>
+                <p><b>Status:</b> <a href="#dev-android">Released</a></p>
+                <p><b>Team size:</b> 4 people</p>
+                <p><b>Duration:</b> 7 months</p>
+                <p>I have worked together with 3 other people during the last year of my high school on an Android application.
+                    The goal was to create an application that allows the user to track their expenses and income, while also
+                    providing various useful functionality that helps them do so - such as charts, recurring events, and goals.
+                    Although my collaborators did not code (I was responsible for all the programming work), they have participated in suggesting ideas,
                     designing the application, suggesting various new features, changes and modifications of the code. Therefore, communication was
                     a crucial aspect of this project, and therefore I have been able to successfully satisfy each request and work closely
-                    with my teammates, and the end result is a fully functioning Android application.
+                    with my teammates. The end result is a fully functioning Android application that is released on Google Play.
                 </p>
 
-                <h3 id="team-highschool">Business Simulation Android Application Project for High School (Business Guy)</h3>
-                <p>I have worked together with 2 fellow students in building an Android application from scratch. We were all beginners
-                    to Android and Java development then, and I took the role as the lead programmer. I was able to successfully
-                    carry out requests and communicate on mutual changes with my group mates, and we successfully managed to
-                    combine our work together. It was also generally a very good mutual learning experience, as we all
+                <h3 id="team-highschool">Business Guy (3 people)</h3>
+                <p><b>Status:</b> Finished & Documented</p>
+                <p><b>Team size:</b> 3 people</p>
+                <p><b>Duration:</b> 8 months</p>
+
+                <p>I have worked together with 2 fellow students in building an Android application from scratch. The general goal was to build a functional
+                    Android application from scratch with the intention to learn Android application development and write a report on the work done.
+                </p>
+
+                <p>We were all beginners in Android and Java development then, and I took the role as the lead programmer. I was able to successfully
+                    carry out requests and communicate on mutual changes with my group mates, and we have successfully managed to cooperate and
+                    combine our work that we have done into one project. It was also generally a very good mutual learning experience, as we all
                     became acquainted with Android development, and for me, this was a really good head start into Android development.
                     Moreover, I have successfully been able to teach my teammates how to build Android layouts in XML.
-                    We have made an extensive documentation and presentation slides for the application. The presentation slides were generally intended for a
-                    general audience with no experience in programming, while the report was intended for our mentoring IT teacher.
-                    Unfortunately, it was all written in the Lithuanian language, but I think this gives a good impression of my
+                </p>
+
+                <p>We have made an extensive documentation and presentation slides for the application. The presentation slides were
+                    generally intended for a general audience with minimal knowledge of programming, while the report was intended for our mentoring
+                    IT teacher. Unfortunately, it was all written in the Lithuanian language, but I think this gives a good impression of my
                     involvement in Android development at a young age (this was done roughly 2-3 years ago):
                 </p>
                 <p><a href="school-ref/businessguy-report.pdf">Business Guy Report</a></p>
