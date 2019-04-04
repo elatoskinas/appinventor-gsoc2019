@@ -75,7 +75,8 @@
                 </p>
 
                 <p>Since this is my main project of interest, I have included a <a href="#timelines">Timeline</a> section dedicated
-                    for the project. In terms of workflow, my plan for the project would be:
+                    for the project. Moreover, in a later sub-section, I have included some mockups and some code snippets to demonstrate
+                    how I would approach the project. In terms of workflow, my plan for the project would be:
                 </p>
                 
                 <ol>
@@ -171,14 +172,15 @@
                 <p><i>Create new class ChartComponent.java. For now, this is just a sample component,
                     therefore the view is TextLabel and is instantiated as such. In the real project,
                     the view would of course be changed to the Chart object. Most properties will go into this abstract
-                    class.
+                    class. (NOTE: I made a mistake in the screenshot. The class should be abstract rather than a regular class)
                 </i></p>
                 <br><br>
 
                 <p><img id="comp4" src="project-ref/comp4.png"></p>
                 <p><i>Create new class LineChart.java. For now, this is simply an implementation class of the ChartComponent.
                     This will, of course, in the actual project be filled with the appropriate instantiation and functionality.
-                    The iconName would be changed to the corresponding icon. Same goes with description.
+                    The iconName would be changed to the corresponding icon. Same goes with description. (NOTE: I have forgot
+                    a few things in the screenshot. The constructor should be public, and the class should be final)
                 </i></p>
                 <br><br>
                 
@@ -271,7 +273,46 @@
                 <p><i>Candle Stick Chart example
                 </i></p>
                 <br><br>
-                
+
+                <h5>Adding Charts to Build & Making First Chart Work</h5>
+                <p>First off, to actually get the MPAndroidChart library to work, the .jar has to be added.
+                    After downloading the library .jar, it is added to <i>"lib\mpandroidchart\"</i>
+                </p>
+                <br><br>
+
+                <p><img id="comp13a" src="project-ref/comp13a.png"></p>
+                <p><img id="comp13b" src="project-ref/comp13b.png"></p>
+                <p><i>The relevant lines need to be added in buildserver/build.xml and components/build.xml have to be added
+                    for the library classes to be found and compiled. See linked example link at the beginning of this subsection
+                    for more details.
+                </i></p>
+                <br><br>
+
+                <p><img id="comp14" src="project-ref/comp14.png"></p>
+                <p><i>The ChartComponent class is refactored from the previous step. The class itself is made abstract,
+                    and a generic class that extends the MPAndroidChart abstract Chart generic (to indicate that T must
+                    be of type Chart). The view is then made to be of type T, and a new protected method initChart()
+                    is added that will take care of initializing common functionality for Chart implementations.
+                </i></p>
+                <br><br>
+
+                                
+                <p><img id="comp15" src="project-ref/comp15.png"></p>
+                <p><i>The LineChart also has to be refactored a bit. It is made final, since no other classes will extend
+                    from the LineChart. Moreover, the constructor is made public, since it will actually be used in
+                    instantiation by other classes. The view is initialized to be the LineChart object that is
+                    part of the added MPAndroidChart library. At the end of the code, initChart() is called, which
+                    is part of the abstract ChartComponent class. Here I have also included code to load test
+                    data for demonstration purposes.
+                </i></p>
+                <br><br>
+
+                <p><img id="comp16" src="project-ref/comp16.png"></p>
+                <p><i>After running ant build, and making an example application in the build of AppInventor and
+                    building the application, we can indeed see that the Line Chart component works as expected.
+                </i></p>
+                <br><br>
+
                 <h3>Menu Options</h3>
                 <p>General summary of the plan for the adding Menu Options project:</p>
                 <ol>
