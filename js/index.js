@@ -50,7 +50,7 @@ $(document).ready(function() {
     for (var i = 0; i < scrollItems.length; ++i) {
         // Get absolute height of i-th scrollItem
         // -20 difference is used since first value is at position 20
-        var scrollValue = scrollItems[i][0].offsetTop - 20;
+        var scrollValue = scrollItems[i][0].offsetTop;
 
         // Add value to scrollPositions
         scrollPositions.push(scrollValue);
