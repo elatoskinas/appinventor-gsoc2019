@@ -113,12 +113,12 @@
                         I plan to implement all of these. In general, these apply to every chart and will go to
                         ChartComponent.
                     </li>
-                    <li>Create an abstract class MockChartComponent that extends from MockVisibleComponent (so
-                        that we may see our visual changes in the editor itself)
-                    </li>
                     <li>[OPTIONAL] Write unit tests for each Chart component. (This is part of another project, therefore
                         it might not be appropriate here. However, in any case, I will make sure to test the Chart Components
                         as thoroughly as possible)
+                    </li>
+                    <li>Create an abstract class MockChartComponent that extends from MockVisibleComponent (so
+                        that we may see our visual changes in the editor itself)
                     </li>
                     <li>For each concrete chart class, create a class for the Mock Component that extends from MockChartComponent.</li>
                     <li>Test each component in different browsers (just to be sure it works)</li>
@@ -134,12 +134,14 @@
                 <ul>
                     <li>Chart Component classes: <i>components\src\com\google\appinventor\components\runtime</i></li>
                     <li>Chart Component documentation: <i>docs\reference\components</i></li>
-                    <li>Mock Chart Component classes: <i>src\com\google\appinventor\client\editor\simple\components</i></li>
+                    <li>Mock Chart Component classes: <i>appengine\src\com\google\appinventor\client\editor\simple\components</i></li>
                     <li>Versioning entries: <i>blocklyeditor\src\versioning.js</i></li>
                     <li>Current version tracking: <i>components\src\com\google\appinventor\components\common\YaVersion.java</i></li>
                     <li>Component categories: <i>components\src\com\google\appinventor\components\common\ComponentCategory.java</i></li>
                     <li>Mock Chart Component Loading in editor:
-                        <i>src\com\google\appinventor\client\editor\simple\palette\SimpleComponentDescriptor.java</i></li>
+                        <i>appengine\src\com\google\appinventor\client\editor\simple\palette\SimpleComponentDescriptor.java</i></li>
+                    <li>Adding library to build: <i>buildserver/build.xml (BuildServer)</i> and <i>components/build.xml</i> (For AppInventor itself)</li>
+                    <li>Libraries folder: <i>lib\</i></li>
                 </ul>
 
                 <h4>Mockups & Code Examples</h4>
@@ -170,17 +172,18 @@
 
                 <p><img id="comp3" src="project-ref/comp3.png"></p>
                 <p><i>Create new class ChartComponent.java. For now, this is just a sample component,
-                    therefore the view is TextLabel and is instantiated as such. In the real project,
-                    the view would of course be changed to the Chart object. Most properties will go into this abstract
-                    class. (NOTE: I made a mistake in the screenshot. The class should be abstract rather than a regular class)
+                    therefore the view is TextLabel and is instantiated as such. In the next steps,
+                    the view would of course be changed to an abstract Chart object or a generic type.
+                    Most properties will go into this abstract class. (NOTE: I made a mistake in this snippet.
+                    The class should be abstract rather than a regular class)
                 </i></p>
                 <br><br>
 
                 <p><img id="comp4" src="project-ref/comp4.png"></p>
                 <p><i>Create new class LineChart.java. For now, this is simply an implementation class of the ChartComponent.
-                    This will, of course, in the actual project be filled with the appropriate instantiation and functionality.
+                    This will, of course, would be filled with the appropriate instantiation and functionality later on.
                     The iconName would be changed to the corresponding icon. Same goes with description. (NOTE: I have forgot
-                    a few things in the screenshot. The constructor should be public, and the class should be final)
+                    a few things in this snippet. The constructor should be public, and the class should be final)
                 </i></p>
                 <br><br>
                 
@@ -279,15 +282,14 @@
                     Preview code to add a fully working chart view to AppInventor</a></p>
 
                 <p>First off, to actually get the MPAndroidChart library to work, the .jar has to be added.
-                    After downloading the library .jar, it is added to <i>"lib\mpandroidchart\"</i>
+                    After downloading the MPAndroidChart library .jar, it is added to <i>"lib\mpandroidchart\"</i>
                 </p>
                 <br><br>
 
                 <p><img id="comp13a" src="project-ref/comp13a.png"></p>
                 <p><img id="comp13b" src="project-ref/comp13b.png"></p>
-                <p><i>The relevant lines need to be added in buildserver/build.xml and components/build.xml have to be added
-                    for the library classes to be found and compiled. See linked example link at the beginning of this subsection
-                    for more details.
+                <p><i>The relevant lines need to be added in buildserver/build.xml and components/build.xml for the library classes to be found
+                    and compiled. See preview code link at the beginning of this subsection for more details.
                 </i></p>
                 <br><br>
 
@@ -315,6 +317,10 @@
                     building the application, we can indeed see that the Line Chart component works as expected.
                 </i></p>
                 <br><br>
+
+                <p><a href="project-ref/apk/ChartTest.aia">ChartTest.aia</a> (works on my
+                    <a href="https://github.com/lightingft/appinventor-sources/tree/chart-test">chart-test branch</a>)</p>
+                <p><a href="project-ref/apk/ChartTest.apk">ChartTest.apk</a></p>
 
                 <h3>Menu Options</h3>
                 <p>General summary of the plan for the adding Menu Options project:</p>
@@ -494,11 +500,11 @@
                 </p>
                 <ul>
                     <li>Extending base Android view functionality, such as implementing a custom spinner with icons to adapt to the needs of the application</li>
-                    <li>Implementing a custom side navigation menu, which has options that lead the User to the right screen or open the required menu</li>
+                    <li>Implementing a custom side navigation menu, which has options that leads the User to the right screen or opens the required menu</li>
                     <li>Extending the functionality of the standard action bar by adding additional buttons and dynamically changing the title</li>
-                    <li>Making use of a 3rd party Calendar library (Caldroid) to build the main interface of the calendar to the project's needs.
+                    <li>Making use of a 3rd party Calendar library (Caldroid) to build the main interface of the calendar in the application.
                         This also involved writing additional code to extend the Calendar to the personal needs of the project.
-                        The extra functionality, for instance, is displaying the amount of money spent/earned in one day on the Calendar.
+                        The extra functionality, for instance, is displaying the amount of money spent/earned in one day on the Calendar cells.
                     </li>
                     <li>Implementing charts to display statistics about the user's expenses and savings. This has been done using the MPAndroidChart library.</li>
                     <li>Implementing other 3rd party libraries to achieve various functionality, such as advertisements and an image gallery.</li>
@@ -507,7 +513,7 @@
                     <li>Input validation of the text input fields (involved regexp, such as disallowing to input "." as a numeric value, or allowing to
                         input at most 2 numbers after the decimal point)
                     </li>
-                    <li>Working with various Android events (mainly OnClickListeners for Buttons)</li>
+                    <li>Working with various Android events (mainly OnClickListeners for Buttons and OnValueChangeListeners for EditText)</li>
                     <li>Creating custom alert dialogs with icons for various scenarios</li>
                     <li>Implementing in-app purchases using Google Play In-App Billing</li>
                 </ul>
@@ -540,7 +546,7 @@
                 
                 <h3 id="dev-javadoc">JavaDoc</h3>
                 <p>During my studies, we were always required to write JavaDoc for the OOP & OOP Project courses. As such, I have developed
-                    a good habit of always writing JavaDoc for my Java Application code, despite whether I'm working alone on the project, or with
+                    a good habit of always writing JavaDoc for my Java code, despite whether I'm working alone on the project, or with
                     someone else. As such, I am familiar with the format of JavaDoc, some of the available annotations (@return, @param, @author, @exception)
                     as well as the general practices of JavaDoc.
                 </p>
@@ -553,14 +559,14 @@
                     been able to extend my knowledge even further with somewhat more advanced knowledge
                     (CI, feature branching, Git Flow branching strategy, branch protection, code reviewing, head detaching, commit rebasing, resetting, checkout)
                     through the OOP Project course, which is done in GitLab and is now ongoing for roughly 2 months. In addition,
-                    the guidance of the community throughout my App Inventor contributions has greatly assisted me in understanding
-                    some more advanced concepts of Git (checkout, rebase)
+                    the guidance of the community throughout my App Inventor contributions has also greatly assisted me in understanding
+                    some more advanced concepts of Git (understanding checkout and rebase further)
                 </p>
 
                 <h3 id="dev-junit">JUnit</h3>
                 <p>Due to coursework demands, I have been able to become strongly familiar with automated testing, and in general, JUnit.
                     Apart from general unit testing, "bad weather behavior" testing practices and edge case testing, I have also managed to gain
-                    a lot of knowledge in mock testing and integration testing, specifically for RESTful applications (REST controllers, Requests,
+                    a lot of knowledge in mock testing (using Mockito and PowerMock) and integration testing, specifically for RESTful applications (REST controllers, Requests,
                     database access related code). Moreover, as one of the course requirements, I have managed to set up GitLab CI that uses JaCoCo
                     to check for a certain test coverage (which uses JUnit tests), as well as display the test outcomes in Pull Requests.
                     This has also assisted me in familiarizing myself with the knowledge of the testing workflow.
@@ -578,7 +584,7 @@
                     We have fully implemented the majority of chess rules, including movement, invalid move checking,
                     checkmating, converting a Pawn after it reaches the other side of the board and board rotation depending on the Player's piece color. Visually,
                     we have written the entire HTML from scratch and styled it with CSS, while also providing various functionality with clientside JavaScript
-                    (e.g. blinking tile in red when invalid move is made). We kept some logic on the serverside, such as pairing players for matches, returning
+                    (e.g. blinking tile in red when invalid move is made). We kept some logic on the server-side, such as pairing players for matches, returning
                     responses for certain actions (such as end of match, move validity, etc.). Outside of this project, I have also written small amounts
                     of JavaScript code to perform small tasks (e.g. highlight anchor links in this proposal page, initialize & load navigation bar in my personal website)</p>
                 
@@ -622,7 +628,7 @@
                 <h3 id="team-chess">PixelChess</h3>
                 <p><b>Status:</b> <a href="#dev-js">Released</a></p>
                 <p><b>Team size:</b> 7 people</p>
-                <p><b>Duration:</b> 2.5 months</p>
+                <p><b>Duration:</b> 5 weeks</p>
 
                 <p>Done as part of the Web & Database Technology course. The project goal was to build a fully functional board game multiplayer
                     Node.js web application. For this project, I have worked in collaboration with one other person.
@@ -638,8 +644,10 @@
                 <p>I have worked together with 3 other people during the last year of my high school on an Android application.
                     The goal was to create an application that allows the user to track their expenses and income, while also
                     providing various useful functionality that helps them do so - such as charts, recurring events, and goals.
-                    Although my collaborators did not code (I was responsible for all the programming work), they have participated in suggesting ideas,
-                    designing the application, suggesting various new features, changes and modifications of the code. Therefore, communication was
+                </p>
+                
+                <p>Although my collaborators did not code (I was responsible for all the programming work), they have participated in coming up with ideas,
+                    designing the application, suggesting various new features and modifications to the application. Therefore, communication was
                     a crucial aspect of this project, and therefore I have been able to successfully satisfy each request and work closely
                     with my teammates. The end result is a fully functioning Android application that is released on Google Play.
                 </p>
