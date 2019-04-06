@@ -10,6 +10,7 @@
      <main>
         <div id="navBar">
           <h2>Evaldas Latoškinas Proposal</h2>
+          <p>evaldasl61@gmail.com</p>
           <a href="#general">General (Personal Details)</a>
           <a href="#appinventor">App Inventor Interest</a>
           <a href="#project">Summer Project</a>
@@ -86,25 +87,26 @@
                         own counterparts (such as LineDataSet for the DataSet of the LineChart), I will most likely go with making the
                         ChartComponent abstract class a generic class, so we can pass in the class type per chart.
                     </li>
-                    <li>Establish and make a UML diagram of the chart attributes. This way, I will be able to see the common functionality
-                        between charts, so that it can all be added to the abstract class. For instance, each chart has a Legend, DataSet,
-                        XAxis, YAxis, Colors, ValueFormatter, AxisValueFormatter and various style settings. Therefore methods
-                        setting and getting these values can be added in the ChartComponent class.
+                    <li>Model a UML diagram for the abstract ChartComponent, which will include all propertiees and methods that will go to the abstract class.
+                        This way, I will be able to see the common functionality between charts, so that it can all be added to the abstract class.
+                        For instance, every chart has a Legend, DataSet, XAxis, YAxis, Colors, ValueFormatter, AxisValueFormatter
+                        and various style settings, therefore it's better to add this to the abstract base class.
                     </li>
-                    <li>Following up on the UML diagram, concrete charts have their own specific functionality. For instance, PieChart
-                        has an attribute whether to show the slice labels in percentage or as values. As such, these will be included
-                        in the UML diagram.
+                    <li>Model concrete Chart Classes in the UML diagram. There may be some additional properties and methods for concrete charts,
+                        for instance showing slice labels as percentage rather than as values in Pie Charts.
+                        Moreover, while modelling the concrete charts, additional intermediate abstract classes might be needed to reduce code redundancy.
                     </li>
-                    <li>Moving on to the implementation, after the UML diagram is fully established, I can then proceed to
-                        implementing the actual attributes and relevant methods with annotations for each chart, starting
-                        with ChartComponent.
+                    <li>Moving on to the implementation, after the UML diagram is fully established, I can then proceed with
+                        implementing the actual attributes and relevant functions (e.g. adding entry) with annotations for each chart, starting
+                        with the abstract ChartComponent base class. This and the next step will of course follow the UML
+                        diagram very closely.
                     </li>
                     <li>After ChartComponent is done, I will then proceed with concrete chart implementations. I plan
                         to implement every chart that is available in the MPAndroidChart library, and for each chart,
                         I will make a seperate class that extends the abstract ChartComponent class. The components
                         will then be put under a new category "Charts". In the end, the following classes for
                         concrete implementations will be present: LineChart, BarChart, PieChart, ScatterChart,
-                        BubbleChart, RadarChart, CandleStickChart. (each one is shown in the following section)
+                        BubbleChart, RadarChart, CandleStickChart. (each one is shown in the following section).
                     </li>
                     <li>After we are done with the attributes, events are needed for added functionality to the
                         charts. Fortunately, MPAndroidChart provides various Gestures and an OnGestureListener which
@@ -117,10 +119,13 @@
                         it might not be appropriate here. However, in any case, I will make sure to test the Chart Components
                         as thoroughly as possible)
                     </li>
-                    <li>Create an abstract class MockChartComponent that extends from MockVisibleComponent (so
-                        that we may see our visual changes in the editor itself)
+                    <li>Create an abstract class MockChartComponent that extends from MockVisibleComponent and add
+                        the relevant logic to handle value changes in the Designer view.
                     </li>
-                    <li>For each concrete chart class, create a class for the Mock Component that extends from MockChartComponent.</li>
+                    <li>For each concrete chart class, create a class for the Mock Component that extends from MockChartComponent.
+                        After this step, we will be able to visually see the chart in the Designer view, as well as the changes
+                        that are applied in Designer.
+                    </li>
                     <li>Test each component in different browsers (just to be sure it works)</li>
                     <li>Write the corresponding documentation for each Chart component, possibly under a new page of category Charts.</li>
                     <li>[BONUS] MPAndroidChart provides the ability to construct Custom Markers when clicked on an entry on a Chart.
@@ -281,7 +286,7 @@
                 <p><a href="https://github.com/lightingft/appinventor-sources/commit/153829b4f7a6d5c0f28318aba3ab8c1e51ece630" class="demo-code">
                     Preview code to add a fully working chart view to AppInventor</a></p>
 
-                <p>First off, to actually get the MPAndroidChart library to work, the .jar has to be added.
+                <p>Firstly, to actually get the MPAndroidChart library to work, the .jar has to be added.
                     After downloading the MPAndroidChart library .jar, it is added to <i>"lib\mpandroidchart\"</i>
                 </p>
                 <br><br>
@@ -294,26 +299,26 @@
                 <br><br>
 
                 <p><img id="comp14" src="project-ref/comp14.png"></p>
-                <p><i>The ChartComponent class is refactored from the previous step. The class itself is made abstract,
+                <p><i>The ChartComponent class is refactored from the previous subsection. The class itself is made abstract,
                     and a generic class that extends the MPAndroidChart abstract Chart generic (to indicate that T must
-                    be of type Chart). The view is then made to be of type T, and a new protected method initChart()
-                    is added that will take care of initializing common functionality for Chart implementations.
+                    be of type Chart). The view is then made to be of type T and non-final & protected (since it will be instantiated in the implementation classes),
+                    and a new protected method initChart() is added that will take care of initializing common functionality for Chart implementations.
                 </i></p>
                 <br><br>
 
                                 
                 <p><img id="comp15" src="project-ref/comp15.png"></p>
                 <p><i>The LineChart also has to be refactored a bit. It is made final, since no other classes will extend
-                    from the LineChart. Moreover, the constructor is made public, since it will actually be used in
-                    instantiation by other classes. The view is initialized to be the LineChart object that is
-                    part of the added MPAndroidChart library. At the end of the code, initChart() is called, which
+                    from the LineChart. Moreover, the constructor is made public, so that it can be instantiated for applications.
+                    The view is initialized to be the LineChart object that is
+                    part of the added MPAndroidChart library. At the end of the constructor code, initChart() is called, which
                     is part of the abstract ChartComponent class. Here I have also included code to load test
                     data for demonstration purposes.
                 </i></p>
                 <br><br>
 
                 <p><img id="comp16" src="project-ref/comp16.png"></p>
-                <p><i>After running ant build, and making an example application in the build of AppInventor and
+                <p><i>After running the ant build, and making an example application in the build of AppInventor and
                     building the application, we can indeed see that the Line Chart component works as expected.
                 </i></p>
                 <br><br>
@@ -402,7 +407,7 @@
                     <li>Setup a test environment repository to test various chart functionality to make decisions for the App Inventor</li>
                     <li>Create a branch that branches from UCR, and add the MPAndroidChart dependency to the build</li>
                     <li>Create & finalize the UML diagram while also discussing it with the mentor(s)</li>
-                    <li>Setup the basic abstract ChartComponent class with all (or at least most) of the necessary chart properties</li>
+                    <li>Create the abstract ChartComponent class with all (or at least most) of the necessary chart properties</li>
                     <li>Create a LineChart implementation to be actually able to test the abstract ChartCompoent class. For now,
                         this will only be used mainly for testing and not have the full implementation
                     </li>
@@ -432,8 +437,8 @@
                 <h3>Week 6</h3>
                 <ul>
                     <li>Create an abstract MockChartComponent class</li>
-                    <li>Implement required functionality that changes the properties of the MockChartComponent class.
-                        This will not be possible to do for many properties however, since each Chart is different
+                    <li>Implement required base functionality in the MockChartComponent class so that changes are reflected in
+                        the Designer window.
                     </li>
                     <li>Create ChartComponent extensions from the MockChartComoponent class</li>
                     <li>Create the implementations for each MockChartComponent that will visualize the chart well in the
@@ -457,7 +462,7 @@
                 </ul>
 
                 <h3>Personal Commitments</h3>
-                <p>Unfortunately, there will be two periods of time when I will be absent:
+                <p>Unfortunately, there will be two periods of time where I will be absent:
                 </p>
                 <ul>
                     <li>June 28-July 2 - final exam period (partial absence)</li>
@@ -514,7 +519,7 @@
                         input at most 2 numbers after the decimal point)
                     </li>
                     <li>Working with various Android events (mainly OnClickListeners for Buttons and OnValueChangeListeners for EditText)</li>
-                    <li>Creating custom alert dialogs with icons for various scenarios</li>
+                    <li>Creating custom alert dialogs with icons for various scenarios (including alert dialogs which require user input)</li>
                     <li>Implementing in-app purchases using Google Play In-App Billing</li>
                 </ul>
                 <p>Alongside this, I have also made an Android business simulation game application for a high school project together with two fellow students
@@ -525,7 +530,7 @@
                     to the large focus of the language in my University. So far, three courses involved extensive coding
                     in Java - Object Oriented Programming, Algorithms & Data Structures, OOP Project. In the first two courses, I was
                     mainly writing small programs that involved solving a specific task, such as finding the shortest path
-                    to a location using Dijkstra's algorithm, or writing an entire program that allows building a catalog based on Objects
+                    to a location using Dijkstra's algorithm, or writing a command line application that allows building a catalog of Objects
                     (e.g. of cars) dynamically by user input and then storing the data locally. The OOP Project involved:
                 </p>
                 <ul>
@@ -538,7 +543,7 @@
                     <li>Making the database accessible via a REST controller.</li>
                     <li>Encrypted password storage in the database.</li>
                     <li>pom.xml maintenance, deploying server to remote location (Heroku), setting up GitLab CI to compile the project,
-                        run the tests, force CheckStyle and certain test coverage as well as create report artifacts.
+                        run the tests, force CheckStyle and 90% test coverage, and create artifacts for both CheckStyle & test reesults.
                     </li>
                     <li>Unit testing for server independent parts of the code.</li>
                     <li>Integration & Mock Tests for server functionality testing.</li>
@@ -554,7 +559,7 @@
                 <h3 id="dev-git">Git & GitHub</h3>
                 <p>Throughout my course work and several individual projects I have worked on, I have chosen to and was obliged
                     to use Git. For the Web & Database Course, I was extensively using and learning Git as a newcomer for roughly 2 months,
-                    and have been able to become quite familiar with it. I have then extended my knowledge by applying the gained knowledge
+                    and have been able to become quite familiar with it. I have then extended my knowledge by applying it
                     to personal projects (a few uploaded repositories, two personal websites, two example projects). Moreover, I have
                     been able to extend my knowledge even further with somewhat more advanced knowledge
                     (CI, feature branching, Git Flow branching strategy, branch protection, code reviewing, head detaching, commit rebasing, resetting, checkout)
@@ -586,11 +591,11 @@
                     we have written the entire HTML from scratch and styled it with CSS, while also providing various functionality with clientside JavaScript
                     (e.g. blinking tile in red when invalid move is made). We kept some logic on the server-side, such as pairing players for matches, returning
                     responses for certain actions (such as end of match, move validity, etc.). Outside of this project, I have also written small amounts
-                    of JavaScript code to perform small tasks (e.g. highlight anchor links in this proposal page, initialize & load navigation bar in my personal website)</p>
+                    of JavaScript code to perform small tasks (e.g. highlight anchor links in this proposal page, initialize & load navigation bar on my personal website)</p>
                 
                 <h3 id="dev-other">Other Experience</h3>
                 <p>Although not relevant skills to the project, this experience heavily contributes to my understanding of the technologies
-                    involved in App Inventor:
+                    involved in App Inventor as well as the general understanding of programming:
                 </p>
                 <ul>
                     <li><a href="https://play.google.com/store/apps/details?id=com.SphereArcher&hl=en">Sphere Archer game project</a> (C#, Unity3D)</li>
