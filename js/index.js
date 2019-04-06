@@ -49,8 +49,8 @@ $(document).ready(function() {
 
     for (var i = 0; i < scrollItems.length; ++i) {
         // Get absolute height of i-th scrollItem
-        // -20 difference is used since first value is at position 20
-        var scrollValue = scrollItems[i][0].offsetTop;
+        // -10 difference to highlight the anchor link a bit more up
+        var scrollValue = scrollItems[i][0].offsetTop - 10;
 
         // Add offset from first scrollPosition
         if (i != 0)
