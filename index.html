@@ -84,10 +84,11 @@
                         own counterparts (such as LineDataSet for the DataSet of the LineChart), I will most likely go with making the
                         ChartComponent abstract class a generic class, so we can pass in the class type per chart.
                     </li>
-                    <li>Model a UML diagram for the abstract ChartComponent, which will include all propertiees and methods that will go to the abstract class.
-                        This way, I will be able to see the common functionality between charts, so that it can all be added to the abstract class.
+                    <li>Model a UML diagram for the abstract ChartComponent, which will include all the base functionality (relevant attributes and methods).
                         For instance, every chart has a Legend, DataSet, XAxis, YAxis, Colors, ValueFormatter, AxisValueFormatter
-                        and various style settings, therefore it's better to add this to the abstract base class.
+                        and various style settings, therefore it's better to add these properties to the abstract base class itself.
+                        Moreover, each Chart will have an addEntry method and methods for datasets, therefore there should be atleast an abstract
+                        definition of the method in this base class.
                     </li>
                     <li>Model concrete Chart Classes in the UML diagram. There may be some additional properties and methods for concrete charts,
                         for instance showing slice labels as percentage rather than as values in Pie Charts.
@@ -103,7 +104,7 @@
                         I will make a seperate class that extends the abstract ChartComponent class. The components
                         will then be put under a new category "Charts". In the end, the following classes for
                         concrete implementations will be present: LineChart, BarChart, PieChart, ScatterChart,
-                        BubbleChart, RadarChart, CandleStickChart. (each one is shown in the following section).
+                        BubbleChart, RadarChart, CandleStickChart. (each one is shown in the <a href="#chart-visual-demo">following section</a>).
                     </li>
                     <li>After we are done with the attributes, events are needed for added functionality to the
                         charts. Fortunately, MPAndroidChart provides various Gestures and an OnGestureListener which
@@ -112,19 +113,20 @@
                         I plan to implement all of these. In general, these apply to every chart and will go to
                         ChartComponent.
                     </li>
-                    <li>[OPTIONAL] Write unit tests for each Chart component. (This is part of another project, therefore
-                        it might not be appropriate here. However, in any case, I will make sure to test the Chart Components
-                        as thoroughly as possible)
+                    <li>[OPTIONAL] Write unit tests for each Chart component (potentially making use of mocking libraries).
+                        As this is part of another App Inventor project, I consider this optional, and this depends largely on the decisions
+                        I would accept with my mentor(s). However, in any case, I will make sure to test the Chart Components as thoroughly as possible.
                     </li>
                     <li>Create an abstract class MockChartComponent that extends from MockVisibleComponent and add
                         the relevant logic to handle value changes in the Designer view.
                     </li>
                     <li>For each concrete chart class, create a class for the Mock Component that extends from MockChartComponent.
-                        After this step, we will be able to visually see the chart in the Designer view, as well as the changes
-                        that are applied in Designer.
+                        After this step and after loading the charts in SimpleComponentDescriptor,
+                        we will be able to visually see the chart in the Designer view, as well as the changes that are applied
+                        to the chart in Designer.
                     </li>
                     <li>Test each component in different browsers (just to be sure it works)</li>
-                    <li>Write the corresponding documentation for each Chart component, possibly under a new page of category Charts.</li>
+                    <li>Write the corresponding documentation for each Chart component, possibly under a new page for the Charts category.</li>
                     <li>[BONUS] MPAndroidChart provides the ability to construct Custom Markers when clicked on an entry on a Chart.
                         This can be well put to use in this project to allow even more customization to the charts or have some sort
                         of standard for the markers. Therefore I propose this as a bonus feature for the project.
@@ -134,16 +136,16 @@
 
                 <h4>File Paths</h4>
                 <ul>
-                    <li>Chart Component classes: <i>components\src\com\google\appinventor\components\runtime</i></li>
-                    <li>Chart Component documentation: <i>docs\reference\components</i></li>
-                    <li>Mock Chart Component classes: <i>appengine\src\com\google\appinventor\client\editor\simple\components</i></li>
-                    <li>Versioning entries: <i>blocklyeditor\src\versioning.js</i></li>
-                    <li>Current version tracking: <i>components\src\com\google\appinventor\components\common\YaVersion.java</i></li>
-                    <li>Component categories: <i>components\src\com\google\appinventor\components\common\ComponentCategory.java</i></li>
+                    <li>Chart Component classes: <i>components/src/com/google/appinventor/components/runtime</i></li>
+                    <li>Chart Component documentation: <i>docs/reference/components</i></li>
+                    <li>Mock Chart Component classes: <i>appengine/src/com/google/appinventor/client/editor/simple/components</i></li>
+                    <li>Versioning entries: <i>blocklyeditor/src/versioning.js</i></li>
+                    <li>Current version tracking: <i>components/src/com/google/appinventor/components/common/YaVersion.java</i></li>
+                    <li>Component categories: <i>components/src/com/google/appinventor/components/common/ComponentCategory.java</i></li>
                     <li>Mock Chart Component Loading in editor:
-                        <i>appengine\src\com\google\appinventor\client\editor\simple\palette\SimpleComponentDescriptor.java</i></li>
+                        <i>appengine/src/com/google/appinventor/client/editor/simple/palette/SimpleComponentDescriptor.java</i></li>
                     <li>Adding library to build: <i>buildserver/build.xml (BuildServer)</i> and <i>components/build.xml</i> (For AppInventor itself)</li>
-                    <li>Libraries folder: <i>lib\</i></li>
+                    <li>Libraries folder: <i>lib/</i></li>
                 </ul>
 
                 <h4>Mockups & Code Examples</h4>
@@ -162,7 +164,7 @@
 
                 <p><img id="comp1a" src="project-ref/comp1a.png"></p>
                 <p><img id="comp1b" src="project-ref/comp1b.png"></p>
-                <p><i>Add version entries to versioning.js and YaVersion.java</i></p>
+                <p><i>Add version entries to versioning.js and YaVersion.java for the Line Chart component</i></p>
                 <br><br>
 
                 <p><img id="comp2a" src="project-ref/comp2a.png"></p>
@@ -184,7 +186,7 @@
                 <p><img id="comp4" src="project-ref/comp4.png"></p>
                 <p><i>Create new class LineChart.java. For now, this is simply an implementation class of the ChartComponent.
                     This will, of course, would be filled with the appropriate instantiation and functionality later on.
-                    The iconName would be changed to the corresponding icon. Same goes with description. (NOTE: I have forgot
+                    The iconName and description would be changed accordingly as well. (NOTE: I forgot
                     a few things in this snippet. The constructor should be public, and the class should be final)
                 </i></p>
                 <br><br>
@@ -197,7 +199,7 @@
                 <br><br>
                 
                 <p><img id="comp6" src="project-ref/comp6.png"></p>
-                <p><i>After running the ant build, we can see that the component has indeed been added under the Chart category.</i></p>
+                <p><i>After running the ant build, we can see that the component has indeed been added under the Charts category.</i></p>
                 <br><br>
 
                 <h5>Adding properties, events and functions</h5>
@@ -205,15 +207,15 @@
                     Preview code to add properties, events and functions</a></p>
 
                 <p><img id="comp7" src="project-ref/comp7.png"></p>
-                <p><i>In ChartComponent.java, define new private boolean field named scaleXEnabled. Write set and get property methods,
-                    add required annotations.
+                <p><i>In ChartComponent.java, define a new private boolean field named scaleXEnabled. Write set and get property methods,
+                    add required annotations for the getters and setters to distinguish the methods as property getters & setters in App Inventor.
                 </i></p>
                 <br><br>
 
                 <p><img id="comp8a" src="project-ref/comp8a.png"></p>
                 <p><img id="comp8b" src="project-ref/comp8b.png"></p>
                 <p><i>After running the ant build, we can see that the properties have been successfully added to the chart component and
-                    are visible in the LineChart implementation.
+                    are visible in the LineChart component blocks.
                 </i></p>
                 <br><br>
 
@@ -240,7 +242,7 @@
                 </i></p>
                 <br><br>
 
-                <h5>MPAndroidChart Charts</h5>
+                <h5 id="chart-visual-demo">MPAndroidChart Charts</h5>
                 <p><a href="https://github.com/lightingft/AndroidChartTests" class="demo-code">MPAndroidChart demonstration</a></p>
                 <br>
 
@@ -282,6 +284,10 @@
                 <h5>Adding Charts to Build & Making First Chart Work</h5>
                 <p><a href="https://github.com/lightingft/appinventor-sources/commit/153829b4f7a6d5c0f28318aba3ab8c1e51ece630" class="demo-code">
                     Preview code to add a fully working chart view to AppInventor</a></p>
+                <p><a href="project-ref/apk/ChartTest.aia">ChartTest.aia</a> (works on my
+                    <a href="https://github.com/lightingft/appinventor-sources/tree/chart-test">chart-test branch</a>)</p>
+                <p><a href="project-ref/apk/ChartTest.apk">ChartTest.apk</a></p>
+                <br>
 
                 <p>Firstly, to actually get the MPAndroidChart library to work, the .jar has to be added.
                     After downloading the MPAndroidChart library .jar, it is added to <i>"lib\mpandroidchart\"</i>
@@ -320,10 +326,6 @@
                 </i></p>
                 <br><br>
 
-                <p><a href="project-ref/apk/ChartTest.aia">ChartTest.aia</a> (works on my
-                    <a href="https://github.com/lightingft/appinventor-sources/tree/chart-test">chart-test branch</a>)</p>
-                <p><a href="project-ref/apk/ChartTest.apk">ChartTest.apk</a></p>
-
                 <h3>Menu Options</h3>
                 <p>General summary of the plan for the adding Menu Options project:</p>
                 <ol>
@@ -332,7 +334,7 @@
                     </li>
                     <li>Create getters and setters for the property "Menu Elements" which would represent all 
                         user defined Menu Elements. I believe it would be a good idea to keep the current
-                        default menu options remain there, but perhaps keep them at the end of the list.
+                        default menu options remain internally, but perhaps keep them at the end of the list.
                     </li>
                     <li>Write additional code in the component itself to handle adding the Menu Elements into the
                         context menu and attaching listeners to them.
@@ -359,6 +361,7 @@
                 </ul>
                 
                 <h3>Improvements in ListView</h3>
+                <p>General summary of the plan for the making Improvements in ListView project::</p>
                 <ol>
                     <li>Identify all required extensions and improvements to list view to get the general idea of the features to implement</li>
                     <li>Create a custom adapter for the list view that can be extended with the needed features (such as adding icons and pictures)</li>
@@ -453,8 +456,8 @@
                     <li>[BONUS] Potentially work on the proposed Marker implementation</li>
                     <li>Deployment</li>
                     <li><b>Workload for mid Week 7 up to Week 12 to be discussed with mentor at beginning of project (so this project can be further well scoped).
-                        In general, I am mainly interested in working further with components (the chart component, or any others). However, I would also be
-                        interested in any other work related to Blocks.
+                        In general, I am mainly interested in working further with components (the chart component, Menu Options, Improvement in ListView, or any others).
+                        However, I would also be interested in any other work related to Blocks.
                     </b></li>
                 </ul>
 
@@ -533,14 +536,14 @@
                 <ul>
                     <li>Various logic code to filter smaller subsets of data from collections in accordance to user preferences.</li>
                     <li>Writing custom extensions of Java classes (such as custom comparables for sorting)</li>
-                    <li>Serverside code to connect to a MongoDB database powered by the Spring framework.</li>
-                    <li>Database queries in Java with the help of the Spring Boot library. An example of a query I've written is one that
+                    <li>Server code to connect to a MongoDB database with the help of the Spring framework.</li>
+                    <li>Database queries in Java with the help of the Spring Boot library. An example of a query I have written is one that
                         uses regex to retrieve usernames matching the text query specified by the user.</li>
                     <li>Utilizing the DAO design pattern for data access within the server code.</li>
                     <li>Making the database accessible via a REST controller.</li>
                     <li>Encrypted password storage in the database.</li>
                     <li>pom.xml maintenance, deploying server to remote location (Heroku), setting up GitLab CI to compile the project,
-                        run the tests, force CheckStyle and 90% test coverage, and create artifacts for both CheckStyle & test reesults.
+                        run the tests, force CheckStyle and 90% test coverage, and create artifacts for both CheckStyle & test results.
                     </li>
                     <li>Unit testing for server independent parts of the code.</li>
                     <li>Integration & Mock Tests for server functionality testing.</li>
@@ -588,7 +591,7 @@
                     we have written the entire HTML from scratch and styled it with CSS, while also providing various functionality with clientside JavaScript
                     (e.g. blinking tile in red when invalid move is made). We kept some logic on the server-side, such as pairing players for matches, returning
                     responses for certain actions (such as end of match, move validity, etc.). Outside of this project, I have also written small amounts
-                    of JavaScript code to perform small tasks (e.g. highlight anchor links in this proposal page, initialize & load navigation bar on my personal website)</p>
+                    of JavaScript code to perform small tasks (e.g. highlight anchor links in this proposal page, initialize & load the navigation bar on my personal website)</p>
                 
                 <h3 id="dev-other">Other Experience</h3>
                 <p>Although not relevant skills to the project, this experience heavily contributes to my understanding of the technologies
@@ -624,7 +627,8 @@
                     of the project (setting up CI, deploying the application to a remote host, etc.) The project in general has been very successful,
                     as we have successfully been able to learn and adapt Agile development principles and as a result efficiently distribute our workflow,
                     discuss changes and new features, as well as plan our work appropriately. We have also effectively managed to sort out the problems we had
-                    during the project.
+                    during the project. Moreover, we have effectively coordinated our efforts (partly thanks to CI) to achieve a well maintained, near-100% test covered,
+                    Checkstyle error-free codebase.
                 </p>
 
                 <h3 id="team-chess">PixelChess</h3>
