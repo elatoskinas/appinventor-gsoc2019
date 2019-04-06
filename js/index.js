@@ -52,6 +52,10 @@ $(document).ready(function() {
         // -20 difference is used since first value is at position 20
         var scrollValue = scrollItems[i][0].offsetTop;
 
+        // Add offset from first scrollPosition
+        if (i != 0)
+            scrollValue += scrollPositions[0];
+
         // Add value to scrollPositions
         scrollPositions.push(scrollValue);
 
