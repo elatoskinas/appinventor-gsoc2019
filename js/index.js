@@ -5,6 +5,10 @@ var menus = [],
 var scrollId = 0;
 
 $(window).scroll(function() {
+    if (scrollPositions == []) {
+        return;
+    }
+
     var scrollPos = $(this).scrollTop() + scrollPositions[0];
 
     var oldScrollId = scrollId;
@@ -37,7 +41,7 @@ $(window).scroll(function() {
     }
 });
 
-$(document).ready(function() {
+window.onload = function() {
     menus = $("#navBar a");
 
     scrollItems = menus.map(function() {
@@ -66,4 +70,4 @@ $(document).ready(function() {
     }
 
     menus[scrollId].dataset.active = true;
-});
+};
