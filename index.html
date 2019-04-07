@@ -89,11 +89,12 @@
                         For instance, every chart has a Legend, DataSet, XAxis, YAxis, Colors, ValueFormatter, AxisValueFormatter
                         and various style settings, therefore it's better to add these properties to the abstract base class itself.
                         Moreover, each Chart will have an addEntry method and methods for datasets, therefore there should be at least an abstract
-                        definition of the method in this base class.
+                        definition of the methods in this base class.
                     </li>
                     <li>Model concrete Chart Classes in the UML diagram. There may be some additional properties and methods for concrete charts,
                         for instance showing slice labels as percentage rather than as values in Pie Charts.
-                        Moreover, while modelling the concrete charts, additional intermediate abstract classes might be needed to reduce code redundancy.
+                        Moreover, while modelling the concrete charts, additional intermediate abstract classes might be needed to reduce code redundancy,
+                        since some charts (e.g. Line Chart & Bar Chart) are very similar, while others differ significantly in terms of entries (e.g. Candle Stick Chart)
                     </li>
                     <li>Moving on to the implementation, after the UML diagram is fully established, I can then proceed with
                         implementing the actual attributes and relevant functions (e.g. adding entry) with annotations for each chart, starting
@@ -111,8 +112,7 @@
                         charts. Fortunately, MPAndroidChart provides various Gestures and an OnGestureListener which
                         works via callbacks and MotionEvents. The gestures include the typical Android view events (long-press,
                         tap, double-tap, touch up, touch down) plus a few extra ones related to the charts (zoom, drag).
-                        I plan to implement all of these. In general, these apply to every chart and will go to
-                        ChartComponent.
+                        In general, these apply to every chart and the functionality will go to ChartComponent.
                     </li>
                     <li>[OPTIONAL] Write unit tests for each Chart component (potentially making use of mocking libraries).
                         As this is part of another App Inventor project, I consider this optional, and this depends largely on the decisions
@@ -386,7 +386,7 @@
 
             <div id="timelines" class="section">
                 <h2>Timeline</h2>
-                <p>Provided that I work on the Visualisation component, I would structure my time as follows:</p>
+                <p>Provided that I work on the Visualisation Component project, I would structure my time as follows:</p>
 
                 <h3>Community Bonding</h3>
                 <ul>
@@ -499,7 +499,7 @@
             </div>
 
             <div id="development" class="section">
-                <h2>Experience With Development Tools</h2>
+                <h2>Experience with Development Tools</h2>
                 <h3 id="dev-android">Android SDK</h3>
                 <p><a href="https://play.google.com/store/apps/details?id=emporium.financecalendar">FinBuddy (Google Play)</a></p>
                 <p>I have gained an extensive understanding of the Android SDK throughout developing Android applications for personal projects.
@@ -527,7 +527,7 @@
                     <li>Implementing in-app purchases using Google Play In-App Billing</li>
                 </ul>
                 <p>Alongside this, I have also made an Android business simulation game application for a high school project together with two fellow students
-                    (see <a href="#team-highschool">Experience With Teams</a> for more information and the report that we made)</p>
+                    (see <a href="#team-highschool">Experience with Teams</a> for more information and the report that we made)</p>
 
                 <h3 id="dev-java">Java</h3>
                 <p>Alongside Android Development, I have quite an extensive comprehension of Java due
@@ -613,8 +613,8 @@
             </div>
 
             <div id="team" class="section">
-                <h2>Experience With Teams</h2>
-                <p><i>Note: Some of these projects were explained more in depth in the <a href="#development">Experience With Development Tools</a></i> section,
+                <h2>Experience with Teams</h2>
+                <p><i>Note: Some of these projects were explained more in depth in the <a href="#development">Experience with Development Tools</a></i> section,
                     therefore the project ideas are only presented very briefly in this section.</p>
 
                 <h3>OOP Project</h3>
