@@ -180,14 +180,13 @@
                 <p><i>Create new class ChartComponent.java. For now, this is just a sample component,
                     therefore the view is TextLabel and is instantiated as such. In the next steps,
                     the view would of course be changed to an abstract Chart object or a generic type.
-                    Most properties will go into this abstract class. (NOTE: I made a mistake in this snippet.
-                    The class should be abstract rather than a regular class)
+                    (NOTE: I made a mistake in this snippet. The class should be abstract rather than a regular class)
                 </i></p>
                 <br><br>
 
                 <p><img id="comp4" src="project-ref/comp4.png"></p>
                 <p><i>Create new class LineChart.java. For now, this is simply an implementation class of the ChartComponent.
-                    This will, of course, would be filled with the appropriate instantiation and functionality later on.
+                    This will be filled with the appropriate instantiation and functionality later on.
                     The iconName and description would be changed accordingly as well. (NOTE: I forgot
                     a few things in this snippet. The constructor should be public, and the class should be final)
                 </i></p>
@@ -332,15 +331,22 @@
                 <h4>Plan</h4>
                 <p>General summary of the plan for the adding Menu Options project:</p>
                 <ol>
-                    <li>Create new component MenuOptions that extends the AndroidNonvisibleComponent class. This could then be put under
+                    <li>
+                        Create new component MenuOptions that extends the AndroidNonvisibleComponent class. This could then be put under
                         the UserInterface category.
                     </li>
-                    <li>Create getters and setters for the property "Menu Elements" which would represent all 
-                        user defined Menu Elements. I believe it would be a good idea to keep the current
-                        default menu options remain internally, but perhaps keep them at the end of the list.
+                    <li>
+                        Create getters and setters for the property "Menu Elements" which would represent all user defined Menu Elements.
                     </li>
                     <li>Write additional code in the component itself to handle adding the Menu Elements into the
-                        context menu and attaching listeners to them.
+                        context menu and attaching listeners to them. Moreover, the two default options should still remain in the list
+                        regardless of user settings (in my opinion), and right now I would aim towards keeping them at the
+                        end of the list (after the User defined options)
+                    </li>
+                    <li>
+                        For the current two default options (About Application and Stop Application), I believe they should
+                        be added after all the user-defined options have been added. Additionally, the Menu Options component could
+                        have two additional Boolean properties to toggle the two menu options in the list.
                     </li>
                     <li>
                         Make all menu options use the same listener, but make the event return a certain value
@@ -349,7 +355,11 @@
                     <li>Write an event for the listener, which would have one attribute - the value returned by the callback
                         (Menu entry name/index)</li>
                     <li>
-                        Additional alterations to Form.java might be needed, since two menu options are added in that class.
+                        Additional alterations to Form.java might be needed, since two menu options are added in that class. Possibly step 3 & 4
+                        might need to be done in Form.java instead.
+                    </li>
+                    <li>
+                        Thoroughly test the component.
                     </li>
                     <li>
                         Write documentation for the component.
@@ -369,8 +379,8 @@
                 <ol>
                     <li>Identify all required extensions and improvements to list view to get the general idea of the features to implement</li>
                     <li>Create a custom adapter for the list view that can be extended with the needed features (such as adding icons and pictures)</li>
-                    <li>Right now I would consider perhaps having one list for images and one for text, so that the adapter would
-                        have both an Image and a String. In the case where one of them is not present, it is simply not displayed.
+                    <li>Right now I would consider perhaps having one list for images and one for text, so that each adapter entry would have both an Image and a String.
+                        In the case where one of them is not present, it is simply not displayed (set to View.GONE)
                     </li>
                     <li>Add additional properties for the new features (e.g. Pictures list attribute for icons/pictures)</li>
                     <li>Write documentation for the new features</li>
@@ -476,7 +486,7 @@
                     However, I believe this should not be a large
                     issue, since I will easily be able to compensate for the lost days. Generally, until July, I will be able to work
                     30-40 hours a week on the project (no more due to university). However, as soon as my final exams end, I would easily
-                    be able to put around 40-45 hours consistently on a weekly basis.
+                    be able to work 40-45 hours consistently on a weekly basis.
                 </p>
 
                 <br><hr><br>
@@ -660,7 +670,7 @@
                 
                 <p>Although my collaborators did not code (I was responsible for all the programming work), they have participated in coming up with ideas,
                     designing the application, suggesting various new features and modifications to the application. Therefore, communication was
-                    a crucial aspect of this project, and therefore I have been able to successfully satisfy each request and work closely
+                    a crucial aspect of this project, and I have been able to successfully satisfy each request and work closely
                     with my teammates. The end result is a fully functioning Android application that is released on Google Play.
                 </p>
 
@@ -669,8 +679,8 @@
                 <p><b>Team size:</b> 3 people</p>
                 <p><b>Duration:</b> 8 months</p>
 
-                <p>I have worked together with 2 fellow students in building an Android application from scratch. The general goal was to build a functional
-                    Android application from scratch with the intention to learn Android application development and write a report on the work done.
+                <p>I have worked together with 2 fellow students in building an Android application from scratch. The general intention was 
+                    to learn Android application development and write a report on the work done.
                 </p>
 
                 <p>We were all beginners in Android and Java development then, and I took the role as the lead programmer. I was able to successfully
